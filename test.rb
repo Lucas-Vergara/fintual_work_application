@@ -87,7 +87,7 @@ class Stock
   end
 end
 
-portolio = Portfolio.new
-profit = portolio.profit(initial_date: '02-01-2018', end_date: '02-01-2021')
+portfolio = Portfolio.new
+profit = portfolio.profit(initial_date: '02-01-2018', end_date: '02-01-2021')
 puts "\n---------------------------\n\n"
 puts "Ganancias: $#{profit[:profit]}\nRetorno Anualizado: #{profit[:annualized_return]}%"
