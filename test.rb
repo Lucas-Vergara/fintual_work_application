@@ -22,19 +22,19 @@ class Portfolio
       # stock = Stock.find_by(name: stock_hash[:name])
       # next if stock.nil?
       initial_price = stock.price(initial_date)
-      initial_investment += initial_price
       end_price = stock.price(end_date)
       next if initial_price.nil? || end_price.nil?
       
+      initial_investment += initial_price
       stock_profit = (end_price - initial_price)*stock_hash[:volume]
       puts "'#{stock_hash[:name]}' profit:#{stock_profit.round(2)}"
       total += stock_profit
     end
-    annualized_return = ((total/initial_investment)**years) if years > 0
+    annualized_return = ((total/initial_investment)**years).round(2) if years > 0
     annualized_return ||= nil
     {
       profit: total,
-      annualized_return: annualized_return.round(2)
+      annualized_return: annualized_return
     }
   end
 
